@@ -12,5 +12,20 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    if (Auth::check())
+    {
+    return view('home');
+    }
+    else
+    {
+    return view('auth/login');
+    }
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['middleware' => 'can:manager'], function() {
+    // routes only a manger is allowed to use
 });
