@@ -27,5 +27,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => 'can:manager'], function() {
-    // routes only a manger is allowed to use
+
 });
