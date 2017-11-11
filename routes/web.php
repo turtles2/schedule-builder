@@ -28,4 +28,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => 'can:manager'], function() {
 
+    Route::get('/schedule_management/new', 'schedule_management_controller@new_schedule');
+    Route::post('/schedule_management/new', 'schedule_management_controller@new_schedule_store');
 });
