@@ -151,6 +151,7 @@
                                      Submit Schedule Template
                                  </button>
                              </div>
+
                          </div>
                 </div>
             </div>
@@ -275,13 +276,22 @@
 
     function build_shifts()
     {
-        var eventsFromCalendar = $('#calendar-{{$calendar->getId()}}').fullCalendar('clientEvents');
 
-        var text = JSON.stringify(eventsFromCalendar);
+        var events = $('#calendar-{{$calendar->getId()}}').fullCalendar("clientEvents");
 
-        // this is not running why?
+        var data = [];
 
-        $('#form').append('<input type="hidden" name="shifts" value="' + text + '" />');
+        events.forEach(loader);
+
+            function loader(value)
+            {
+
+                var event = [value.title,value.start,value.end];
+
+                data.push(event);
+            }
+
+        $('#form').append('<input type="hidden" name="shifts" value="' + data + '" />');
 
     }
 
