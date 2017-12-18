@@ -16,7 +16,12 @@ class schedule_period extends Model
 
     public function template()
     {
-        return $this->hasMany('App\schedule_template', 'id', 'schedule_period');
+        return $this->hasMany('App\schedule_template', 'schedule_period', 'id');
+    }
+
+    public function user_templates()
+    {
+        return $this->hasMany('App\user_schedule_template', 'schedule_period', 'id');
     }
 
     public function setstartsAttribute($value)

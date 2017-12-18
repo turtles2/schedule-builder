@@ -26,6 +26,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/scheduling/availability', 'scheduling_controller@new_availability');
+Route::post('/scheduling/availability', 'scheduling_controller@new_availability_store');
+Route::post('/scheduling/availability/template', 'scheduling_controller@new_availability_template');
+
 Route::group(['middleware' => 'can:manager'], function() {
 
     Route::get('/schedule_management/new', 'schedule_management_controller@new_schedule');

@@ -26,4 +26,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function schedule_template()
+    {
+        return $this->hasMany('App\user_schedule_template', 'user_id', 'id');
+    }
 }

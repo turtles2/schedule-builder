@@ -49,7 +49,7 @@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Scheduling<span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-
+                                    <li><a href="/scheduling/availability">Submit an Availability</a></li>
                                 </ul>
                             </li>
 
